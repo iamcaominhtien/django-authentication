@@ -28,7 +28,7 @@ SECRET_KEY = "django-insecure-lp+mlcj%9v*7@r0$noa*-d7@(8zs=36%q*d!bmjeo183!w)l#x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['iamcaominhtien.pythonanywhere.com']
 
 
 # Application definition
@@ -93,7 +93,6 @@ PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
     'django.contrib.auth.hashers.Argon2PasswordHasher',
     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
-    'django.contrib.auth.hashers.ScryptPasswordHasher',
 ]
 
 
@@ -148,3 +147,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # The URL or named URL pattern where requests are redirected for login when using the
 # login_required() decorator, LoginRequiredMixin, or AccessMixin.
 LOGIN_URL = '/basic_app/dang-nhap/'
+
+# STATIC_ROOT = Path(BASE_DIR / 'static')
