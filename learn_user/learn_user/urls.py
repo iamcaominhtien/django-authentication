@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path,include
 from basic_app import views
 from basic_app import urls as BasicUrl
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("",views.index,name='index'),
@@ -24,4 +26,4 @@ urlpatterns = [
     path('special/',views.special,name='special'),
     path("admin/", admin.site.urls),
     path(f'{BasicUrl.app_name}/',include('basic_app.urls'))
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
