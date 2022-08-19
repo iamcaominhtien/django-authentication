@@ -1,0 +1,38 @@
+{% extends 'basic_app/base.html' %}
+{% load static %}
+
+{% block body_block %}
+{% if registered %}
+    <div class="p-5 bg-success">
+            <h1 class="display-3 text-white">Thank you for registering!</h1>
+    </div>
+{% else %}
+    <form action="" method="post" enctype='multipart/form-data' id='form_registration'>
+        {% csrf_token %}
+        {{user_form.as_p}}
+        {{profile_form.as_p}}
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+{% endif %}
+{% endblock body_block %}
+
+{% block lastScript %}
+<script>
+  var element = document.getElementById("form_registration");
+  if (element){
+    element.classList = "p-5 bg-white row col-md-6";
+    for (let i of element.children) {
+      if (i.tagName == "P") {
+        i.classList = "mb-3 px-0";
+        i.children[0].classList = "form-label fw-bold";
+        i.children[1].classList = "form-control";
+      } else if (i.tagName == "BUTTON") {
+        i.classList = "btn btn-primary col-6";
+      }
+    }
+    for (let item of document.getElementsByClassName('errorlist')){
+      item.classList.add('text-danger')
+    }
+  }
+</script>
+{% endblock lastScript %}
